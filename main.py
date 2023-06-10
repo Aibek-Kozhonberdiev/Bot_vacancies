@@ -18,7 +18,8 @@ def user(message):
     data = message.date
     text = message.text
     print(f'Name: {first_name, last_name}, id: {id_}, data: {time.ctime(data)}, text: {text}')
-    USER.append(f'Name: {first_name, last_name}, id: {id_}, data: {time.ctime(data)}, text: {text}')
+    if message.chat.id != ADMIN:
+        USER.append(f'Name: {first_name, last_name}, id: {id_}, data: {time.ctime(data)}, text: {text}')
 
 @bot.message_handler(commands=['start'])
 def start_com(message):
